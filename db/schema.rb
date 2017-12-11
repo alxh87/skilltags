@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20171210060954) do
     t.integer "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_endorsements_on_skill_id"
+    t.index ["user_id"], name: "index_endorsements_on_user_id"
   end
 
   create_table "skill_tags", force: :cascade do |t|
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 20171210060954) do
     t.integer "skill_tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["skill_tag_id"], name: "index_skills_on_skill_tag_id"
+    t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

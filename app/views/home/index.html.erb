@@ -6,20 +6,27 @@ My Profile
 
 My Skills
 <% if @userskills %>
+	<% @userskills.each do |skill| %>
 	<ul class="profile-list">
 		<% @userskills.each do |skill| %>
 		<li class="profile-entry">
 			<h3 class="profile-entry-title">
 				<span>
 					<div class="skill-endorsement-counter">
-						<% byebug %>
+						<%= skill.endorsements.count %>
+					</div>
+					<div>
+						<%= skill.skill_tag.name %>
 					</div>
 				</span>
 			</h3>
 		</li>
 		<% end %>
 	</ul>
+	<% end %>
 <% else %>
+
+
 Please add some skills
 <% end %>
 

@@ -11,3 +11,8 @@ require 'faker'
 10.times do
 	SkillTag.create(name: Faker::ProgrammingLanguage.name)	
 end
+
+
+User.first.skills.create(skill_tag_id: 1)
+User.first.skills.create(skill_tag_id: 3)
+User.first.skills.create(skill_tag_id: 5)
