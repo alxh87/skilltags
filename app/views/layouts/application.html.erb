@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skilltags</title>
+    <%= csrf_meta_tags %>
+		
+		<link rel="stylesheet" media="screen" href="https://de7iszmjjjuya.cloudfront.net/assets/vendor-ffd0c20ade53b9ecd2b52cf5a8cd78195f374588cadd21eb5e2c2e97570f6cc3.css" />
+		    <link rel="stylesheet" media="screen" href="https://de7iszmjjjuya.cloudfront.net/assets/application-308e0dc6a2faddbcbcd235c351893ce77992ec7d0c93edf2d4fe329d46c1e0c6.css" />
+		<link rel="stylesheet" media="screen" href="https://de7iszmjjjuya.cloudfront.net/assets/gamma/projects-22a1fe6a70b8d178078bac05cc723f8db652b2dc7c232070889bb27ccec41113.css" />
+		<link rel="stylesheet" media="screen" href="https://de7iszmjjjuya.cloudfront.net/assets/gamma/social_connect-2aadc487430c3a56d269ff08e5cd6eb696b7afc06961a3af10c7a083ff4ee28e.css" />
+
+		<link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+		<p class="notice"><%= notice %></p>
+	  <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

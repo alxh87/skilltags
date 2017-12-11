@@ -1,0 +1,43 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+My Profile
+
+
+My Skills
+<% if @userskills %>
+	<ul class="profile-list">
+		<% @userskills.each do |skill| %>
+		<li class="profile-entry">
+			<h3 class="profile-entry-title">
+				<span>
+					<div class="skill-endorsement-counter">
+						<% byebug %>
+					</div>
+				</span>
+			</h3>
+		</li>
+		<% end %>
+	</ul>
+<% else %>
+Please add some skills
+<% end %>
+
+
+<li ng-repeat="skill in data.profile.skill_tags_attributes" class="ng-scope">
+<h3 class="profile-entry-title">
+<span class="ng-binding">
+<div class="skill-plus-button ng-binding">
+0
+</div>
+MATLAB
+</span>
+</h3>
+<p class="profile-entry-date" style="background-image:url(https://de7iszmjjjuya.cloudfront.net/assets/linethrough-bg-ca1a0157a77da0bca2ace712e4d6037a7aa1dec69db54d1491c4e7918a33855a.gif);">
+<span>
+<span ng-show="skill.endorsements" class="ng-hide">
+<!-- ngRepeat: endorsement in skill.endorsements | limitTo:10 -->
+</span>
+</span>
+</p>
+</li>
