@@ -2,6 +2,5 @@
 <p>Find me in app/views/users/index.html.erb</p>
 
 <% @users.each do |user| %>
-	<%= Faker::Person.name %>
-	<%= link_to user.id, users_show_path(user) %>
+	<%= link_to user.id, user_path(user) %>
 <% end %>

@@ -1,2 +1,36 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+
+ Profile
+
+
+My Skills
+<% if @skills %>
+	<ul class="profile-list">
+		<% @skills.each do |skill| %>
+		<li class="profile-entry">
+			<h3 class="profile-entry-title">
+				<span>
+					<div class="skill-endorsement-counter">
+						<%= skill.endorsements.size %>
+					</div>
+					<div>
+						<%= skill.skill_tag.name %>
+						<%= link_to "Endorse", endorsement_create_path(:skill_id => skill.id), method: :post %>
+					</div>
+				</span>
+			</h3>
+		</li>
+		<% end %>
+	</ul>
+<% else %>
+
+
+Please add some skills
+<% end %>
+
+
+
+
+
