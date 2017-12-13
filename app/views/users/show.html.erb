@@ -17,7 +17,7 @@ My Skills
 					</div>
 					<div>
 						<%= skill.skill_tag.name %>
-						<%= link_to "Endorse", endorsement_create_path(:skill_id => skill.id), method: :post %>
+						<%= link_to "Endorse", skill_endorsement_create_path(skill), method: :post %>
 					</div>
 				</span>
 			</h3>

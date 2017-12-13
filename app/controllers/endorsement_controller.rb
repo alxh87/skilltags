@@ -1,14 +1,24 @@
 class EndorsementController < ApplicationController
   def create
-  	@user = current_user.id
-    @skill = params[:skill_id]
-    @endorsement = Endorsement.new(user_id: @user, skill_id: @skill)
+    @skill = Skill.find(params[:skill_id])
+    @user = @skill.user
+    @endorsed = endorsed(@skill)
 
-    
-    if @endorsement.save!
-      redirect_to user_path(@user)
+    if @endorsed
+    	@endorsed.destroy!
     else
-     redirect_to root_path
+    	@endorsement = Endorsement.new(user_id: current_user.id, skill: @skill)
+    	@endorsement.save!
     end
+
+      redirect_to user_path(@user)
+
+  end
+
+
+
+
+  def endorsed(skill)
+  	current_user.endorsements.where(skill_id: skill).first
   end
 end
