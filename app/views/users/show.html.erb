@@ -11,15 +11,16 @@ My Skills
 		<% @skills.each do |skill| %>
 		<li class="profile-entry">
 			<h3 class="profile-entry-title">
-				<span>
-					<div class="skill-endorsement-counter">
-						<%= skill.endorsements.size %>
-					</div>
-					<div>
-						<%= skill.skill_tag.name %>
-						<%= link_to "Endorse", skill_endorsement_create_path(skill), method: :post %>
-					</div>
-				</span>
+				<%= link_to skill_endorsement_create_path(skill), method: :post, remote: true  do %>
+					<span>
+						<div class="skill-endorsement-counter" id="skill_<%= skill.id %>" >
+							<%= skill.endorsements.size %>
+						</div>
+						<div>
+							<%= skill.skill_tag.name %>
+						</div>
+					</span>
+				<% end %>
 			</h3>
 		</li>
 		<% end %>

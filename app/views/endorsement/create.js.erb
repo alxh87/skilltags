@@ -1,0 +1,7 @@
+var count = parseInt(document.getElementById("skill_<%= @skill.id %>").innerHTML);
+
+<% if @endorsed %>
+	document.getElementById("skill_<%= @skill.id %>").innerHTML = count-1;
+<% else %>
+	document.getElementById("skill_<%= @skill.id %>").innerHTML = count+1;
+<% end %>

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
   	@skills = @user.skills.includes(:skill_tag, :endorsements)
+  	@current_user_endorsements = current_user.endorsements
   end
 
   private

@@ -11,7 +11,10 @@ class EndorsementController < ApplicationController
     	@endorsement.save!
     end
 
-      redirect_to user_path(@user)
+    respond_to do |format|
+        format.html { redirect_to user_path(@user) }
+        format.js   { }
+    end
 
   end
 
