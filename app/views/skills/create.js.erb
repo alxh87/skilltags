@@ -1,0 +1,21 @@
+
+
+<% if @existing_skill %>
+	
+
+<% else %>
+
+	var skill_tag = document.getElementById("skill_tag_<%= @skill_tag.id %>");
+	skill_tag.parentNode.removeChild(skill_tag);
+
+	var list = document.getElementById("skills-list-added");
+
+	var node = document.createElement("LI");                 // Create a <li> node
+	var countnode = document.createTextNode("0");
+	var textnode = document.createTextNode("<%= @skill_tag.name %>");         // Create a text node
+
+	list.append('<%= j render "skill_tag_list_item", skill: @skill, skill_tag: @skill_tag  %>');
+
+
+<% end %>
+

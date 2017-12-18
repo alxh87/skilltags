@@ -2,13 +2,16 @@ Rails.application.routes.draw do
 
   
 
-  get 'home/index'
-  resources :users
-  devise_for :users
+  
   root to: 'home#index'
+  
+  devise_for :users
+  
+  get 'users/:id' => 'users#show'
 
   resources :skills do
-    post 'endorsement/create'
+    post 'endorsements/create'
+    post 'create'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

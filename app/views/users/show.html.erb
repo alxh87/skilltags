@@ -7,31 +7,37 @@
 
 My Skills
 <% if @skills %>
-	<ul class="profile-list">
+	<ul class="profile-list" id="skills-list-added">
 		<% @skills.each do |skill| %>
-		<li class="profile-entry">
-			<h3 class="profile-entry-title">
-				<%= link_to skill_endorsement_create_path(skill), method: :post, remote: true  do %>
-					<span>
-						<div class="skill-endorsement-counter" id="skill_<%= skill.id %>" >
-							<%= skill.endorsements.size %>
-						</div>
-						<div>
-							<%= skill.skill_tag.name %>
-						</div>
-					</span>
-				<% end %>
-			</h3>
-		</li>
+		<%= render :partial => "skill_list_item", :locals => 
+  		{ :skill => skill} %>
 		<% end %>
 	</ul>
 <% else %>
 
-
-Please add some skills
+You have no skills
 <% end %>
 
-
-
+<% if @user==current_user %>
+	<h1>Add Skill</h1>
+	<ul class="profile-list" id="skills-list-not-added">
+		<% @skill_tags.each do |skill_tag| %>
+			<li class="profile-entry" id="skill_tag_<%= skill_tag.id %>" >
+				<h3 class="profile-entry-title">
+					<%= link_to skill_create_path(skill_tag), method: :post, remote: true do %>
+						<span>
+							<div class="skill-tag_add" >
+								+
+							</div>
+							<div>
+								<%= skill_tag.name %>
+							</div>
+						</span>
+					<% end %>
+				</h3>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
 
 

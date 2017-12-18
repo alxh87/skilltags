@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  
 	before_action :find_user, only: :show
 
 
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
   	@skills = @user.skills.includes(:skill_tag, :endorsements)
   	@current_user_endorsements = current_user.endorsements
+  	@skill_tags = SkillTag.all - @user.skill_tags
   end
 
   private

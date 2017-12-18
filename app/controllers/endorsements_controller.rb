@@ -1,4 +1,4 @@
-class EndorsementController < ApplicationController
+class EndorsementsController < ApplicationController
   def create
     @skill = Skill.find(params[:skill_id])
     @user = @skill.user
@@ -19,7 +19,7 @@ class EndorsementController < ApplicationController
   end
 
 
-
+  private
 
   def endorsed(skill)
   	current_user.endorsements.where(skill_id: skill).first

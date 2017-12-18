@@ -1,0 +1,12 @@
+<li class="profile-entry">
+	<h3 class="profile-entry-title">
+		<%= link_to skill_endorsements_create_path(skill), method: :post, remote: true  do %>
+				<div class="skill-endorsement-counter" id="skill_<%= skill.id %>" >
+					0
+				</div>
+				<div>
+					<%= skill.skill_tag.name %>
+				</div>
+		<% end %>
+	</h3>
+</li>
