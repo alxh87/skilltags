@@ -1,3 +1,54 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.title{
+	padding-bottom: 30px;
+}
+
+.skill-endorsement-counter{
+border-radius: 30px;
+border-bottom-right-radius: 30px;
+border-style: solid;
+border-width: 2px;
+color: rgb(0, 164, 187);
+display: inline-block;
+height: 30px;
+line-height: 30px;
+margin-bottom: 20px;
+text-align: center;
+width: 30px;
+word-wrap: break-word;
+}
+
+.tag-name{
+	padding-left: 15px;
+	display: inline-block;
+	font-size: 1.10em;
+	line-height: 1.2
+}
+
+.skill-tag{
+	-webkit-font-smoothing: antialiased;
+background-color: #00A4BB;
+border-radius: 4px;
+color: white;
+display: inline-block;
+margin: 2px;
+padding: 5px;
+text-align: left;
+
+}
+
+.tag-link{
+	color: white;
+}
+
+.added{
+	background-color: #9DA0A4;
+}
+
+#skills-list-edit{
+	visibility: visible;
+}

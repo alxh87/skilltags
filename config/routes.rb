@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   
   get 'users/:id' => 'users#show'
 
-  resources :skills do
-    post 'endorsements/create'
-    post 'create'
-  end
+  resources :users do
+	  resources :skills do
+	    post 'endorsements/create'
+	    post 'create'
+	  end
+	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

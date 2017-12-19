@@ -1,43 +1,58 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="title">
+	<h2>What I'm good at</h2>
+</div>
+
+<div id="skills-list-added">
+	<% if @skills %>
+		<ul class="profile-list">
+			<% @skills.each do |skill| %>
+				<li class="profile-entry"  id="profile-skill_<%= skill.id %>">
+					<h3 class="profile-entry-title">
+						<%= link_to user_skill_endorsements_create_path(@user,skill), method: :post, remote: true  do %>
+								<div class="skill-endorsement-counter" id="skill_<%= skill.id %>" >
+									<%= skill.endorsements.size %>
+								</div>
+						<% end %>
+						<div class="tag-name">
+							<%= skill.skill_tag.name %>
+						</div>
+					</h3>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
 
 
- Profile
 
 
-My Skills
-<% if @skills %>
-	<ul class="profile-list" id="skills-list-added">
-		<% @skills.each do |skill| %>
-		<%= render :partial => "skill_list_item", :locals => 
-  		{ :skill => skill} %>
-		<% end %>
-	</ul>
-<% else %>
+<div id="skills-list-edit">
+	<% if @user==current_user %>
 
-You have no skills
-<% end %>
-
-<% if @user==current_user %>
-	<h1>Add Skill</h1>
-	<ul class="profile-list" id="skills-list-not-added">
-		<% @skill_tags.each do |skill_tag| %>
-			<li class="profile-entry" id="skill_tag_<%= skill_tag.id %>" >
-				<h3 class="profile-entry-title">
-					<%= link_to skill_create_path(skill_tag), method: :post, remote: true do %>
-						<span>
-							<div class="skill-tag_add" >
-								+
-							</div>
-							<div>
-								<%= skill_tag.name %>
-							</div>
-						</span>
-					<% end %>
-				</h3>
-			</li>
-		<% end %>
-	</ul>
-<% end %>
-
-
+		<ul class="profile-list" id="skills-tags-added">
+			<% @skills.each do |skill| %>
+				<li class="skill-tag added" id="skill_tag_<%= skill.skill_tag.id %>" >
+						<%= link_to user_skill_create_path(@user,skill.skill_tag), method: :post, remote: true, class: "tag-link" do %>
+									<div class="tag-text">
+										<%= skill.endorsements.size %> | <%= skill.skill_tag.name %>
+										<div class="icon-remove"></div>
+									</div>
+						<% end %>
+				</li>
+			<% end %>
+		</ul>
+Click skills to add:
+		<ul class="profile-list" id="skills-tags-not-added">
+			<% @skill_tags.each do |skill_tag| %>
+				<li class="skill-tag not-added" id="skill_tag_<%= skill_tag.id %>" >
+						<%= link_to user_skill_create_path(@user,skill_tag), method: :post, remote: true, class: "tag-link" do %>
+									<div class="tag-text">
+										<%= skill_tag.name %>
+									</div>
+						<% end %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>

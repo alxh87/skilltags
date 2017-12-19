@@ -4,6 +4,9 @@
     <title>Skilltags</title>
     <%= csrf_meta_tags %>
 		
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 		<link rel="stylesheet" media="screen" href="https://de7iszmjjjuya.cloudfront.net/assets/vendor-ffd0c20ade53b9ecd2b52cf5a8cd78195f374588cadd21eb5e2c2e97570f6cc3.css" />
 		    <link rel="stylesheet" media="screen" href="https://de7iszmjjjuya.cloudfront.net/assets/application-308e0dc6a2faddbcbcd235c351893ce77992ec7d0c93edf2d4fe329d46c1e0c6.css" />
 		<link rel="stylesheet" media="screen" href="https://de7iszmjjjuya.cloudfront.net/assets/gamma/projects-22a1fe6a70b8d178078bac05cc723f8db652b2dc7c232070889bb27ccec41113.css" />
@@ -11,13 +14,17 @@
 
 		<link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-		<p class="notice"><%= notice %></p>
-	  <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div id="main-inner">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+    </div>
+		
   </body>
 </html>
