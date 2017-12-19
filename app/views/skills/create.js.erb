@@ -14,7 +14,7 @@
 	var countnode = document.createTextNode("0");
 	var textnode = document.createTextNode("<%= @skill_tag.name %>");         // Create a text node
 
-	list.append('<%= j render "skill_tag_list_item", skill: @skill, skill_tag: @skill_tag  %>');
+	$("#skills-list-added").append('<%= j render "skill_tag_list_item", skill: @skill, skill_tag: @skill_tag  %>');
 
 
 <% end %>
