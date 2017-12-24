@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20171224063550) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "endorsements", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "skill_id"
+    t.bigint "user_id"
+    t.bigint "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["skill_id"], name: "index_endorsements_on_skill_id"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20171224063550) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "skill_tag_id"
+    t.bigint "user_id"
+    t.bigint "skill_tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["skill_tag_id"], name: "index_skills_on_skill_tag_id"
