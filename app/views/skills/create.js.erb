@@ -7,10 +7,14 @@
 		$("#profile-skill_<%= @skill.id %>").remove();
 	<% end %>
 <% else %>
-	$("#skill_tag_<%= @skill_tag.id %>").appendTo("#skills-tags-added");
-	$("#skill_tag_<%= @skill_tag.id %> .tag-text").prepend("0 | ");
-	$("#skill_tag_<%= @skill_tag.id %> .tag-text").append("<div class='icon-remove'></div>");
-	$("#skill_tag_<%= @skill_tag.id %>").addClass( "added" );
+	<% if @owner %>
+		$("#skill_tag_<%= @skill_tag.id %>").appendTo("#skills-tags-added");
+		$("#skill_tag_<%= @skill_tag.id %> .tag-text").prepend("0 | ");
+		$("#skill_tag_<%= @skill_tag.id %> .tag-text").append("<div class='icon-remove'></div>");
+		$("#skill_tag_<%= @skill_tag.id %>").addClass( "added" );
+	<% else %>
+		$("#skill_tag_<%= @skill_tag.id %>").remove();
+	<% end %>
 	$("#skills-list-added").append('<%= j render "skill_tag_list_item", skill: @skill, skill_tag: @skill_tag  %>');
 
 <% end %>

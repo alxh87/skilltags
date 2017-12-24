@@ -17,14 +17,48 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <div id="header" class="cf ">
+          <div id="header-inner">
+                <header class="cf" id="global-header">
+                  <div class="global-menu-wrapper cf">
+                  <p class="header-logo logo-icon">
+                  <a href="/"><img width="44px" height="44px" alt="Wantedly" src="https://de7iszmjjjuya.cloudfront.net/assets/wantedly-logo-a0ae0c0da51ab402f4ae76a1772c19579277ec2b369fc42ea61a35c9957a2acc.svg">
+                  </a></p>
+                  <div class="global-menu">
+                  <ul>
+                  <li class="user-menu">
+                  <a href="/">Search Jobs</a>
+                  </li>
+                  <li class="user-menu">
+                  <a href="/">News Feed</a>
+                  </li>
+                  <li class="selected user-menu">
+                  <a href="/">Your Profile
+                  </a></li>
+                  <li class="user-menu">
+                  <a href="/">Tools
+                  </a></li>
+                  <li><form class="search ng-pristine ng-valid" action="/search" accept-charset="UTF-8" method="get">
+                  <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;"><input type="text" name="q" id="global-search" placeholder="Search people, jobs, and companies" class="allow_submit tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Hiragino Sans&quot;, ヒラギノ角ゴシック, &quot;Hiragino Kaku Gothic ProN&quot;, &quot;ヒラギノ角ゴ Pro W3&quot;, Roboto, メイリオ, Meiryo, &quot;ＭＳ Ｐゴシック&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-east-asian: normal; font-variant-position: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;"><div class="tt-dataset-companies"></div><div class="tt-dataset-projects"></div><div class="tt-dataset-users"></div><div class="tt-dataset-footer"></div></span></span>
+                  <i class="wt-icon wt-icon-search-short"></i>
+                  </form>
+
+                  </li>
+                  </ul>
+                  </div>
+                  </div>
+                </header>
+          </div>
+        </div>
+
   </head>
 
   <body>
-    <div id="main-inner">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
-          <%= yield %>
-    </div>
-		
+          <div class="container">
+            <%= yield %>
+		      </div>
   </body>
 </html>

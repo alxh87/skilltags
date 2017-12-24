@@ -1,7 +1,13 @@
-var count = parseInt(document.getElementById("skill_<%= @skill.id %>").innerHTML);
+var count = parseInt($("#skill_<%= @skill.id %>").html());
 
 <% if @endorsed %>
-	document.getElementById("skill_<%= @skill.id %>").innerHTML = count-1;
+	$("#skill_<%= @skill.id %>").html(count-1);
+	$("#skill_<%= @skill.id %>").removeClass( "endorsed" );
+	$("#profile-skill_<%= @skill.id %> a").append("<div class='plus-button'>+</div>");
 <% else %>
-	document.getElementById("skill_<%= @skill.id %>").innerHTML = count+1;
+	$("#skill_<%= @skill.id %>").html(count+1);
+	$("#skill_<%= @skill.id %>").addClass( "endorsed" );
+	$("#profile-skill_<%= @skill.id %> .plus-button").remove();
 <% end %>
+
+

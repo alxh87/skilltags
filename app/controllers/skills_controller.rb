@@ -23,6 +23,6 @@ class SkillsController < ApplicationController
   private
 
   def existing_skill(skill_tag)
-  	@skill = current_user.skills.where(skill_tag_id: skill_tag).first
+  	@skill = @user.skills.where(skill_tag_id: skill_tag).first
   end
 end

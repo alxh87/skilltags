@@ -22,6 +22,6 @@ class EndorsementsController < ApplicationController
   private
 
   def endorsed(skill)
-  	current_user.endorsements.where(skill_id: skill).first
+  	current_user.endorsements.where(skill: skill).first
   end
 end

@@ -1,58 +1,102 @@
 
-<div class="title">
-	<h2>What I'm good at</h2>
-</div>
 
-<div id="skills-list-added">
-	<% if @skills %>
-		<ul class="profile-list">
-			<% @skills.each do |skill| %>
-				<li class="profile-entry"  id="profile-skill_<%= skill.id %>">
-					<h3 class="profile-entry-title">
-						<%= link_to user_skill_endorsements_create_path(@user,skill), method: :post, remote: true  do %>
-								<div class="skill-endorsement-counter" id="skill_<%= skill.id %>" >
+<a href="https://placeholder.com"><img src="http://via.placeholder.com/900x300"></a>
+
+
+	<div class="title">
+		<% if @user==current_user %>
+			<h1>Your Profile</h1>
+		<% else %>
+			<h1>User <%= @user.id %>'s Profile</h1>
+		<% end %>
+		<h2>What I'm good at</h2>
+	</div>
+
+	<div id="skills-list-added">
+		<div class="setting-and-edit">
+				<button class="edit-profile-button">
+				<div class="icon-pencil"></div>
+					<% if @user==current_user %>
+						Edit your skills
+					<% else %>
+						Recommend a new skill
+					<% end %>
+				</button>
+		</div>
+		<% if @skills %>
+			<ul class="profile-list">
+				
+				<% if @user==current_user %>
+					<% @skills.each do |skill| %>
+						<li class="profile-entry"  id="profile-skill_<%= skill.id %>">
+								<div class="skill-endorsement-counter endorsed" id="skill_<%= skill.id %>" >
 									<%= skill.endorsements.size %>
 								</div>
-						<% end %>
-						<div class="tag-name">
-							<%= skill.skill_tag.name %>
-						</div>
-					</h3>
-				</li>
-			<% end %>
-		</ul>
-	<% end %>
-</div>
+								<div class="tag-name">
+									<%= skill.skill_tag.name %>
+								</div>
+						</li>
+					<% end %>
+				<% else %>
+					<% @skills.each do |skill| %>
+						<% (skill.endorsements & @current_user_endorsements).any? ? endorsed=true : endorsed=false  %>
+						<li class="profile-entry"  id="profile-skill_<%= skill.id %>">
+								<%= link_to user_skill_endorsements_create_path(@user,skill), method: :post, remote: true  do %>
+									<% if endorsed %>
+										<div class="skill-endorsement-counter endorsed" id="skill_<%= skill.id %>" >
+											<%= skill.endorsements.size %>
+										</div>
+									<% else %>
+											<div class="skill-endorsement-counter" id="skill_<%= skill.id %>" >
+												<%= skill.endorsements.size %>
+											</div>
+											<div class="plus-button">+</div>
+									<% end %>
+								<% end %>
+								<div class="tag-name">
+									<%= skill.skill_tag.name %>
+								</div>
+						</li>
+					<% end %>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
 
 
+	<div id="skills-list-edit">
+		<div class="setting-and-edit">
+			<button class="edit-profile-button">
+				<div class="icon-pencil"></div>
+				Close
+			</button>
+		</div>
+		<% if @user==current_user %>
 
-
-<div id="skills-list-edit">
-	<% if @user==current_user %>
-
-		<ul class="profile-list" id="skills-tags-added">
-			<% @skills.each do |skill| %>
-				<li class="skill-tag added" id="skill_tag_<%= skill.skill_tag.id %>" >
-						<%= link_to user_skill_create_path(@user,skill.skill_tag), method: :post, remote: true, class: "tag-link" do %>
-									<div class="tag-text">
-										<%= skill.endorsements.size %> | <%= skill.skill_tag.name %>
-										<div class="icon-remove"></div>
-									</div>
-						<% end %>
-				</li>
-			<% end %>
-		</ul>
-Click skills to add:
-		<ul class="profile-list" id="skills-tags-not-added">
-			<% @skill_tags.each do |skill_tag| %>
-				<li class="skill-tag not-added" id="skill_tag_<%= skill_tag.id %>" >
-						<%= link_to user_skill_create_path(@user,skill_tag), method: :post, remote: true, class: "tag-link" do %>
-									<div class="tag-text">
-										<%= skill_tag.name %>
-									</div>
-						<% end %>
-				</li>
-			<% end %>
-		</ul>
-	<% end %>
-</div>
+			<ul class="profile-list" id="skills-tags-added">
+				<% @skills.each do |skill| %>
+					<li class="skill-tag added" id="skill_tag_<%= skill.skill_tag.id %>" >
+							<%= link_to user_skill_create_path(@user,skill.skill_tag), method: :post, remote: true, class: "tag-link" do %>
+										<div class="tag-text">
+											<%= skill.endorsements.size %> | <%= skill.skill_tag.name %>
+											<div class="icon-remove"></div>
+										</div>
+							<% end %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+			Click skills to add:
+			<ul class="profile-list" id="skills-tags-not-added">
+				<% @skill_tags.each do |skill_tag| %>
+					<li class="skill-tag not-added" id="skill_tag_<%= skill_tag.id %>" >
+							<%= link_to user_skill_create_path(@user,skill_tag), method: :post, remote: true, class: "tag-link" do %>
+										<div class="tag-text">
+											<%= skill_tag.name %>
+										</div>
+							<% end %>
+					</li>
+				<% end %>
+			</ul>
+		
+	</div>

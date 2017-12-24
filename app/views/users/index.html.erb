@@ -1,6 +1,11 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 
+<div class="title">
+	<h2>You are user <%= current_user.id %> </h2>
+	<h2><%= link_to 'Click here for your page ', user_path(current_user) %></h2>
+</div>
+
+
+<h1>All User Profiles</h1>
 <% @users.each do |user| %>
-	<%= link_to user.id, user_path(user) %>
+	<p><%= link_to 'Click here for user ' + user.id.to_s, user_path(user) %></p>
 <% end %>
