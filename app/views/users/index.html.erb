@@ -1,11 +1,15 @@
 
+<img src="http://via.placeholder.com/900x300">
+
+
+
 <div class="title">
-	<h2>You are user <%= current_user.id %> </h2>
+	<h1>You are user <%= current_user.id %> </h1>
 	<h2><%= link_to 'Click here for your page ', user_path(current_user) %></h2>
 </div>
 
 
-<h1>All User Profiles</h1>
+<h2>All User Profiles</h2>
 <% @users.each do |user| %>
 	<p><%= link_to 'Click here for user ' + user.id.to_s, user_path(user) %></p>
 <% end %>

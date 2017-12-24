@@ -1,6 +1,6 @@
 
 
-<a href="https://placeholder.com"><img src="http://via.placeholder.com/900x300"></a>
+<img src="http://via.placeholder.com/900x300">
 
 
 	<div class="title">
@@ -72,7 +72,7 @@
 			</button>
 		</div>
 		<% if @user==current_user %>
-
+			Click skills to remove:
 			<ul class="profile-list" id="skills-tags-added">
 				<% @skills.each do |skill| %>
 					<li class="skill-tag added" id="skill_tag_<%= skill.skill_tag.id %>" >

@@ -1,12 +1,24 @@
-<li class="profile-entry"  id="profile-skill_<%= @skill.id %>">
-	<h3 class="profile-entry-title">
-		<%= link_to user_skill_endorsements_create_path(@user,@skill), method: :post, remote: true  do %>
-				<div class="skill-endorsement-counter" id="skill_<%= @skill.id %>" >
-					0
-				</div>
-		<% end %>
+<% if @owner %>
+	<li class="profile-entry"  id="profile-skill_<%= skill.id %>">
+		<div class="skill-endorsement-counter endorsed" id="skill_<%= skill.id %>" >
+			0
+		</div>
 		<div class="tag-name">
 			<%= @skill_tag.name %>
 		</div>
-	</h3>
-</li>
+	</li>
+<% else %>
+	<li class="profile-entry"  id="profile-skill_<%= @skill.id %>">
+		<h3 class="profile-entry-title">
+			<%= link_to user_skill_endorsements_create_path(@user,@skill), method: :post, remote: true  do %>
+					<div class="skill-endorsement-counter" id="skill_<%= @skill.id %>" >
+						0
+					</div>
+					<div class="plus-button">+</div>
+			<% end %>
+			<div class="tag-name">
+				<%= @skill_tag.name %>
+			</div>
+		</h3>
+	</li>
+<% end %>

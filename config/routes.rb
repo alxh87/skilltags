@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   
   get 'users/:id' => 'users#show'
 
-  resources :users do
-	  resources :skills do
+  resources :users, only: [:show, :index] do
+	  resources :skills, only: [:create] do
 	    post 'endorsements/create'
 	    post 'create'
 	  end

@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    
     @skills = @user.skills
       .includes(:skill_tag, :endorsements)
       .left_joins(:endorsements)

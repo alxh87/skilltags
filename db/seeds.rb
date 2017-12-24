@@ -8,11 +8,22 @@
 
 require 'faker'
 
-10.times do
+20.times do
 	SkillTag.create(name: Faker::ProgrammingLanguage.name)	
 end
 
+10.times do
+	SkillTag.create(name: Faker::Lorem.words(1).first.capitalize)	
+end
 
-User.first.skills.create(skill_tag_id: 1)
-User.first.skills.create(skill_tag_id: 3)
-User.first.skills.create(skill_tag_id: 5)
+20.times do |i|
+	User.create(email: "#{i}@skilltags.com", password: '123456', password_confirmation: '123456')
+end
+
+200.times do
+	Skill.create(user_id: rand(20)+1, skill_tag_id: rand(SkillTag.count)+1)
+end
+
+300.times do
+	Endorsement.create(user_id: rand(20)+1, skill_id: rand(Skill.count)+1)
+end
