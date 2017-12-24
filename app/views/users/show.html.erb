@@ -6,12 +6,15 @@
 	<div class="title">
 		<% if @user==current_user %>
 			<h1>Your Profile</h1>
+			<h1><%= @user.name %></h1>
+			<h4>User <%= @user.id %></h4>
 		<% else %>
-			<h1>User <%= @user.id %>'s Profile</h1>
+			<h1><%= @user.name %>'s Profile</h1>
+			<h4>User <%= @user.id %></h4>
 		<% end %>
-		<h2>What I'm good at</h2>
 	</div>
 
+<h2>What I'm good at</h2>
 	<div id="skills-list-added">
 		<div class="setting-and-edit">
 				<button class="edit-profile-button">

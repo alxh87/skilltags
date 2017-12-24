@@ -4,12 +4,13 @@
 
 
 <div class="title">
-	<h1>You are user <%= current_user.id %> </h1>
+	<h1>You are <%= current_user.name %> </h1>
+	<h2>User <%= current_user.id %> </h2>
 	<h2><%= link_to 'Click here for your page ', user_path(current_user) %></h2>
 </div>
 
 
 <h2>All User Profiles</h2>
 <% @users.each do |user| %>
-	<p><%= link_to 'Click here for user ' + user.id.to_s, user_path(user) %></p>
+	<p><%= link_to user.id.to_s + " " + user.name, user_path(user) %></p>
 <% end %>

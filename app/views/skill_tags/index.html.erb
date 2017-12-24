@@ -1,0 +1,11 @@
+
+<img src="http://via.placeholder.com/900x300">
+
+
+
+<div class="title">
+	<h1>All Skills</h1>
+</div>
+<% @skill_tags.each do |skill_tag| %>
+	<p><%= link_to skill_tag.name, skill_tag_path(skill_tag) %></p>
+<% end %>

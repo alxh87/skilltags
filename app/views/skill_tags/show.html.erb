@@ -1,0 +1,25 @@
+
+<img src="http://via.placeholder.com/900x300">
+
+
+
+<div class="title">
+	<h1><%= @skill_tag.name %> </h1>
+</div>
+
+
+<h2>All User Profiles</h2>
+<% @skills.each do |skill| %>
+	<div class="card" >
+  <img class="card-img-top" src="http://via.placeholder.com/200x150" data-holder-rendered="true" style="height: 100px; width: 100%; display: block;">
+  <div class="card-block">
+  	<%= link_to user_path(skill.user) do %>
+    	<h4 class="card-title"><%= skill.user.name %></h4>
+    	<h4 class="card-title">User <%= skill.user.id %></h4>
+    	<div class="skill-endorsement-counter" id="skill_<%= skill.id %>" >
+				<%= skill.endorsements.size %>
+			</div>
+  	<% end %>
+  </div>
+</div>
+<% end %>

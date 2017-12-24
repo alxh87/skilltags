@@ -17,7 +17,7 @@ end
 end
 
 20.times do |i|
-	User.create(email: "#{i}@skilltags.com", password: '123456', password_confirmation: '123456')
+	User.create(name: Faker::Name.name, email: "#{i}@skilltags.com", password: '123456', password_confirmation: '123456')
 end
 
 200.times do
