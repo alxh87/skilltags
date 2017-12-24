@@ -1,24 +1,5 @@
-# README
+This is hosted at https://skilltags.herokuapp.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+There are 20 seeded users. 
+Logins are '1@skilltags.com' -> '20@skilltags.com'
+Passwords are '123456'
